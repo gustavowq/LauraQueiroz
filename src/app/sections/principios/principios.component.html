@@ -1,0 +1,11 @@
+<!-- PRINCÍPIOS — os três pilares do estúdio, continuando o fundo escuro do manifesto. -->
+<section class="principios" aria-label="Princípios">
+  <div class="wrap">
+    @for (p of principios; track p.titulo) {
+      <div class="principio" data-sobe>
+        <span class="rotulo">{{ p.titulo }}</span>
+        <p>{{ p.texto }}</p>
+      </div>
+    }
+  </div>
+</section>

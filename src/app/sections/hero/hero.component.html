@@ -1,0 +1,36 @@
+<!-- ABERTURA DO SITE (HERO)
+     Camadas, de baixo para cima:
+       1. manifesto (fundo escuro, aparece quando as brises se abrem)
+       2. parede de brises — tiras de freijó, pedra, linho e musgo recortadas em arco
+       3. título e chamadas -->
+<section class="hero" id="topo" aria-label="Apresentação">
+
+  <!-- 1. Manifesto -->
+  <div class="hero__manifesto">
+    <div class="wrap">
+      <p class="manifesto-txt">A brutalidade da pedra e a leveza do linho. O jogo de luz e sombra, de cheios e vazios. Um poético culto à beleza dos materiais.</p>
+    </div>
+  </div>
+
+  <!-- 2. Brises (o .hero__janela é invisível: só marca onde fica o arco) -->
+  <div class="hero__janela" aria-hidden="true"></div>
+  <div class="hero__palco" aria-hidden="true">
+    <div class="brises">
+      @for (material of brises; track $index) {
+        <div [class]="'brise tx tx-' + material"></div>
+      }
+    </div>
+  </div>
+
+  <!-- 3. Texto -->
+  <div class="hero__texto">
+    <span class="rotulo suave hero-in">Arquitetura &amp; Interiores · Goiânia</span>
+    <h1 class="hero-titulo">Espaços que <em>transformam</em> vidas.</h1>
+    <p class="hero__sub suave hero-in">Há mais de 10 anos, casas, apartamentos, quartos infantis e lugares de encontro desenhados com matéria, luz e afeto.</p>
+    <div class="hero__rodape hero-in">
+      <a class="btn" href="#obra">Ver a casa ser construída</a>
+      <span class="cota">role ↓</span>
+    </div>
+  </div>
+  <span class="hero__legenda">brises · freijó, pedra filetada, linho, musgo</span>
+</section>

@@ -1,0 +1,28 @@
+<!-- CONTATO — endereço e formulário. A mensagem é montada ao vivo e enviada pelo WhatsApp. -->
+<section class="contato" id="contato" aria-label="Contato">
+  <div class="wrap">
+    <div class="pilha pilha--larga">
+      <h2 data-linhas>Vamos desenhar o seu <em>próximo capítulo</em>?</h2>
+      <p class="suave" data-sobe>Conte um pouco do seu espaço. A conversa continua no WhatsApp, já com o briefing em mãos.</p>
+      <div class="endereco" data-sobe>
+        <span>Av. 136, nº 797, Ed. New York Square, sala 1201-B</span>
+        <span>Setor Sul, Goiânia, GO</span>
+        <span class="cota contato__fone">(62) 3638-2420 · @lauraqueirozarquitetura</span>
+      </div>
+    </div>
+    <form class="form" (submit)="enviar($event)" data-sobe>
+      <label class="campo" for="f-nome">Seu nome<input id="f-nome" type="text" autocomplete="name" placeholder="Nome e sobrenome" [value]="nome()" (input)="nome.set($any($event.target).value)"></label>
+      <div class="duas">
+        <label class="campo" for="f-tipo">Tipo de projeto
+          <select id="f-tipo" (change)="tipo.set($any($event.target).value)">
+            @for (o of tipos; track o) { <option [selected]="o === tipo()">{{ o }}</option> }
+          </select>
+        </label>
+        <label class="campo" for="f-m2">Metragem aproximada<input id="f-m2" type="text" placeholder="ex.: 120 m²" [value]="m2()" (input)="m2.set($any($event.target).value)"></label>
+      </div>
+      <label class="campo" for="f-msg">Conte sobre o espaço<textarea id="f-msg" rows="3" placeholder="Quem vai usar, o que não pode faltar, prazos" (input)="msg.set($any($event.target).value)"></textarea></label>
+      <div class="form__previa" aria-live="polite">{{ mensagem() }}</div>
+      <a class="btn btn--cheio" [href]="link()" target="_blank" rel="noopener">Continuar no WhatsApp</a>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+/* SOBRE O BELO — jornal/blog com os textos de dicas. */
+
+.belo { padding-block: 140px; }
+.belo__cab { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
+.belo h2 { font-size: clamp(56px, 7vw, 120px); line-height: .9; font-style: italic; }
+.textos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.texto { display: flex; flex-direction: column; gap: 16px; text-decoration: none; }
+.texto__img { aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; position: relative; }
+.texto__img > div { position: absolute; inset: -6%; transition: transform 1.2s var(--ease); }
+.texto:hover .texto__img > div { transform: scale(1.06) rotate(.6deg); }
+.texto h3 { font-size: 30px; line-height: 1.1; }
+@media (max-width: 900px) { .textos { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 700px) { .belo { padding-block: 96px; } }
+.belo__intro { max-width: 36ch; }

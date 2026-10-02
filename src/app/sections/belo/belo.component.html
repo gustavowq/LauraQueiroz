@@ -1,0 +1,18 @@
+<!-- SOBRE O BELO — o jornal do site: os conteúdos de dicas dos stories viram textos. -->
+<section class="belo" id="belo" aria-label="Jornal Sobre o Belo">
+  <div class="wrap">
+    <div class="belo__cab">
+      <div class="pilha"><span class="rotulo suave">Jornal</span><h2 data-linhas>Sobre o Belo</h2></div>
+      <span class="suave belo__intro">As dicas que hoje vivem nos stories ganham endereço próprio e passam a ser encontradas no Google.</span>
+    </div>
+    <div class="textos">
+      @for (t of textos; track t.titulo) {
+        <a class="texto" href="#belo" data-sobe data-cursor="ver">
+          <div class="texto__img"><div [class]="'tx tx-' + t.tx"></div></div>
+          <span class="rotulo rotulo--mini suave">{{ t.cat }}</span>
+          <h3>{{ t.titulo }}</h3>
+        </a>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+/* =====================================================================
+   UTILITÁRIOS — peças reutilizadas por várias seções:
+   container (.wrap), rótulos, botões, arco e as texturas de materiais
+   (.tx-pedra, .tx-ripado…) que substituem as fotos neste esboço.
+   ===================================================================== */
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+.rotulo { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; }
+.cota { font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; color: var(--suave); }
+.suave { color: var(--suave); }
+.arco { border-radius: 999px 999px 0 0; overflow: hidden; }
+/* linhas e palavras criadas pelo SplitText nas animações de texto */
+.split-line { overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 28px; border-radius: 999px;
+  text-decoration: none; font-size: 15px; font-weight: 500; cursor: pointer;
+  border: 1px solid var(--texto); background: transparent;
+  transition: background .4s var(--ease), color .4s var(--ease);
+}
+.btn:hover { background: var(--texto); color: var(--bg); }
+.btn--cheio { background: var(--acento); border-color: var(--acento); color: var(--sobre-acento); }
+.btn--cheio:hover { background: var(--texto); border-color: var(--texto); color: var(--bg); }
+
+
+/* Texturas de materiais (as imagens são geradas em core/materiais/texturas.ts) */
+.tx { background-size: 320px; background-repeat: repeat; }
+.tx-ripado { background-image: var(--tx-ripado); background-size: 260px; }
+.tx-madeira { background-image: var(--tx-madeira); }
+.tx-pedra { background-image: var(--tx-pedra); background-size: 300px; }
+.tx-linho { background-image: var(--tx-linho); background-size: 180px; }
+.tx-cimento { background-image: var(--tx-cimento); }
+.tx-terracota { background-image: var(--tx-terracota); }
+.tx-musgo { background-image: var(--tx-musgo); }
+.tx-offwhite { background-image: var(--tx-offwhite); }
+.tx-pedraPreta { background-image: var(--tx-pedraPreta); }
+.tx-azul { background-image: var(--tx-azul); }
+.tx-mostarda { background-image: var(--tx-mostarda); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; }
+  .hero__manifesto .palavra { opacity: 1; }
+}
+
+/* Pilha vertical simples (título + texto) */
+.pilha { display: flex; flex-direction: column; gap: 14px; }
+.pilha--larga { gap: 26px; }
+.rotulo--mini { font-size: 11px; }
+/* Texto só para leitores de tela */
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

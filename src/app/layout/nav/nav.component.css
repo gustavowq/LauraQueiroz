@@ -1,0 +1,44 @@
+/* MENU — barra fixa do topo: logo, links das seções, botão de luz e chamada para contato. */
+
+.nav {
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50;
+  transition: transform .6s var(--ease), background .4s;
+}
+.nav.is-escondida { transform: translateY(-110%); }
+.nav.is-solida { background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
+.nav__in { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 84px; }
+.marca { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.marca svg { width: 30px; height: 38px; }
+.marca b { white-space: nowrap; font-weight: 500; font-size: 12px; letter-spacing: .45em; }
+.nav__links { display: flex; gap: 30px; font-size: 14px; }
+.nav__links a { text-decoration: none; position: relative; }
+.nav__links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
+.nav__links a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav__acoes { display: flex; gap: 10px; align-items: center; }
+.luz {
+  white-space: nowrap;
+  min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--linha);
+  background: transparent; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 13px;
+}
+.luz__bulbo { width: 12px; height: 12px; border-radius: 50%; background: var(--ambar); box-shadow: 0 0 0 0 var(--ambar); transition: box-shadow .6s; }
+html[data-luz="noite"] .luz__bulbo { box-shadow: 0 0 14px 4px rgba(217, 168, 102, .65); }
+.nav__menu { display: none; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; }
+.progresso { position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: var(--texto); transform-origin: left; transform: scaleX(0); }
+@media (max-width: 1120px) {
+  .nav__links, .nav__acoes .btn { display: none; }
+  .nav__menu { display: grid; place-items: center; }
+  .nav__links.is-aberto {
+    display: flex; position: fixed; inset: 84px 0 auto 0; flex-direction: column; gap: 22px;
+    padding: 32px var(--gutter) 40px; background: var(--bg); border-bottom: 1px solid var(--linha);
+    font-family: var(--f-display); font-size: 34px;
+  }
+}
+
+/* Telas muito estreitas: o botão de luz mostra só a lâmpada */
+@media (max-width: 360px) {
+  .luz span:last-child { display: none; }
+  .luz { padding: 0 14px; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .nav__in { height: 64px; }
+}

@@ -1,0 +1,6 @@
+/* RODAPÉ — nome grande, links e aviso de esboço. */
+
+.rodape { background: var(--grafite); color: #EEE6DA; padding-block: 90px 40px; overflow: hidden; }
+.rodape__nome { font-family: var(--f-display); font-size: clamp(64px, 15vw, 250px); line-height: .85; letter-spacing: -.03em; white-space: nowrap; }
+.rodape__base { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 56px; font-size: 13px; color: #B2A797; }
+.rodape__aviso { margin-top: 18px; font-family: var(--f-mono); font-size: 11px; color: #8a8076; }

@@ -1,0 +1,13 @@
+/* CURSOR — o círculo que segue o mouse e cresce sobre links e projetos. */
+
+.cursor {
+  position: fixed; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px;
+  border-radius: 50%; border: 1px solid var(--texto); pointer-events: none; z-index: 90;
+  display: grid; place-items: center; mix-blend-mode: difference; border-color: #fff;
+  transition: width .35s var(--ease), height .35s var(--ease), margin .35s var(--ease), background .35s;
+}
+.cursor span { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #fff; opacity: 0; transition: opacity .2s; }
+.cursor.is-link { width: 46px; height: 46px; margin: -23px 0 0 -23px; }
+.cursor.is-ver { width: 88px; height: 88px; margin: -44px 0 0 -44px; background: #fff; }
+.cursor.is-ver span { opacity: 1; color: #000; }
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }

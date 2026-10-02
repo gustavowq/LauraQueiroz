@@ -1,0 +1,28 @@
+<!-- MENU — logo, links das seções, botão "Luz do dia / Luz da noite" e chamada para contato.
+     Some ao rolar para baixo, volta ao rolar para cima. A linha de baixo mostra o progresso da página. -->
+<header class="nav" [class.is-escondida]="escondida()" [class.is-solida]="solida()">
+  <div class="wrap nav__in">
+    <a class="marca" href="#topo" aria-label="Laura Queiroz Arquitetura, início">
+      <svg viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-width="1.3"><path [attr.d]="arco"></path></svg>
+      <span><b>L Q A</b></span>
+    </a>
+
+    <nav class="nav__links" [class.is-aberto]="aberto()" aria-label="Seções">
+      @for (link of links; track link.href) {
+        <a [href]="link.href" (click)="aberto.set(false)">{{ link.texto }}</a>
+      }
+    </nav>
+
+    <div class="nav__acoes">
+      <button type="button" class="luz" (click)="alternarLuz($event)"
+              [attr.aria-label]="estudio.noite() ? 'Mudar para luz do dia' : 'Mudar para luz da noite'">
+        <span class="luz__bulbo"></span><span>{{ estudio.noite() ? 'Luz do dia' : 'Luz da noite' }}</span>
+      </button>
+      <a class="btn btn--cheio" href="#contato">Agendar conversa</a>
+      <button type="button" class="nav__menu" (click)="aberto.set(!aberto())" [attr.aria-expanded]="aberto()" aria-label="Abrir menu">
+        <svg width="22" height="14" viewBox="0 0 22 14" stroke="currentColor" stroke-width="1.4"><path d="M0 1h22M0 13h22"></path></svg>
+      </button>
+    </div>
+  </div>
+  <div class="progresso"></div>
+</header>

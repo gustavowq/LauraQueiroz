@@ -1,0 +1,20 @@
+<!-- PADRÕES DE MATERIAIS — um <svg> invisível com cada textura registrada como
+     "pattern". As ilustrações usam fill="url(#p-pedra)", fill="url(#p-ripado)" etc. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    @for (t of lista; track t.n) {
+      <pattern [attr.id]="'p-' + t.n" patternUnits="userSpaceOnUse" [attr.width]="t.s" [attr.height]="t.s">
+        <image [attr.href]="t.url" x="0" y="0" [attr.width]="t.s" [attr.height]="t.s" preserveAspectRatio="none"></image>
+      </pattern>
+    }
+    <linearGradient id="g-vidro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfdcd8"></stop><stop offset="1" stop-color="#9fb3b1"></stop>
+    </linearGradient>
+    <linearGradient id="g-agua" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f8c8a"></stop><stop offset="1" stop-color="#3f5856"></stop>
+    </linearGradient>
+    <radialGradient id="g-luz" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffe2b0" stop-opacity=".95"></stop><stop offset="1" stop-color="#ffd08a" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+</svg>

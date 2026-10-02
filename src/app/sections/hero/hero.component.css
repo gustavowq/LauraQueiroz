@@ -1,0 +1,52 @@
+/* ABERTURA DO SITE (HERO) — título, arco com as brises de materiais e o manifesto revelado quando as brises giram. */
+
+.hero { position: relative; height: 100vh; height: 100svh; min-height: 360px; overflow: hidden; background: var(--bg); }
+.hero__manifesto {
+  position: absolute; inset: 0; background: var(--grafite); color: #EEE6DA;
+  display: flex; align-items: center;
+}
+.hero__manifesto p {
+  font-family: var(--f-display); font-size: clamp(30px, 4.6vw, 70px); line-height: 1.1; max-width: 1100px;
+}
+.hero__manifesto .palavra { opacity: .14; }
+.hero__palco { position: absolute; inset: 0; perspective: 1400px; pointer-events: none; }
+.hero__janela {
+  position: absolute; right: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter))); bottom: 0; width: min(40vw, 600px); height: min(78vh, 760px);
+  border-radius: 999px 999px 0 0; overflow: hidden; display: flex; transform-style: preserve-3d;
+}
+.brise { flex: 1 1 0; height: 100%; backface-visibility: hidden; transform-origin: center; position: relative; }
+.brise::after { content: ''; position: absolute; inset: 0; box-shadow: inset -1px 0 0 rgba(0,0,0,.18), inset 1px 0 0 rgba(255,255,255,.08); }
+.hero__texto {
+  position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end;
+  gap: 30px; padding-bottom: clamp(48px, 9vh, 110px); max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter);
+}
+.hero h1 { font-size: clamp(40px, min(7.6vw, 14vh), 136px); line-height: .92; max-width: 10ch; }
+.hero__sub { max-width: 430px; font-size: 18px; }
+.hero__rodape { display: flex; gap: 26px; align-items: center; flex-wrap: wrap; }
+.hero__legenda {
+  position: absolute; z-index: 3; right: calc(var(--gutter) + 16px); bottom: 24px; color: #F1EBE2;
+  background: rgba(20, 18, 16, .55); padding: 6px 10px; font-family: var(--f-mono); font-size: 11px;
+}
+@media (max-width: 900px) and (orientation: portrait) {
+  .hero__janela { width: min(62vw, 340px); height: 30vh; right: 50%; transform: translateX(50%); top: 96px; bottom: auto; }
+  .hero__texto { justify-content: flex-end; gap: 20px; padding-bottom: 36px; }
+  .hero h1 { font-size: clamp(40px, 11.5vw, 80px); max-width: none; }
+  .hero__sub { font-size: 16px; }
+  .obra__dica { display: none; }
+  .hero__legenda { display: none; }
+}
+
+/* Celular em pé com tela baixa: arco menor e sem o parágrafo de apoio */
+@media (max-width: 900px) and (orientation: portrait) and (max-height: 720px) {
+  .hero__sub { display: none; }
+  .hero__janela { height: 28vh; top: 92px; }
+}
+/* Celular deitado */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero__texto { gap: 14px; padding-bottom: 24px; }
+  .hero__sub, .hero__legenda { display: none; }
+  .hero__janela { height: 82vh; width: 34vw; }
+}
+
+/* parede de brises: ocupa a tela toda e é recortada em arco via clip-path */
+.brises { position: absolute; inset: 0; display: flex; transform-style: preserve-3d; }

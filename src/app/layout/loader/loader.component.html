@@ -1,0 +1,14 @@
+<!-- ABERTURA — o arco do logo se desenha, as letras L Q A aparecem e a tela sobe revelando o site. -->
+<div class="loader" role="status" aria-label="Carregando o site">
+  <div class="loader__mark">
+    <svg viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-width=".9">
+      <path class="l-arco" [attr.d]="arco"></path>
+      <line class="l-base" x1="-6" y1="47" x2="46" y2="47"></line>
+    </svg>
+    <span class="loader__letras">L Q A</span>
+  </div>
+  <div class="loader__cota cota">
+    <span>Laura Queiroz Arquitetura</span>
+    <span>esc. 1:{{ escala() }}</span>
+  </div>
+</div>

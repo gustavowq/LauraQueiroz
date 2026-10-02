@@ -1,0 +1,31 @@
+<!-- PROJETOS — cabeçalho com filtros e a faixa de cartões. No computador a faixa corre na horizontal enquanto a página rola; no celular os cartões ficam empilhados. -->
+<section class="projetos" id="projetos" aria-label="Projetos">
+  <div class="wrap projetos__cab">
+    <div class="pilha">
+      <span class="rotulo suave">Portfólio · {{ visiveis() }} de {{ projetos.length }}</span>
+      <h2 data-linhas>Projetos</h2>
+    </div>
+    <div class="filtros" role="group" aria-label="Filtrar projetos">
+      @for (c of categorias; track c) {
+        <button type="button" class="filtro" [attr.aria-pressed]="filtro() === c" (click)="filtrar(c)">{{ c }}</button>
+      }
+    </div>
+  </div>
+  <!-- faixa de cartões (cada cartão: ilustração em arco, nome, categoria e amostras de material) -->
+  <div class="trilho">
+    @for (p of projetos; track p.id; let i = $index) {
+      <a class="cartao" href="#obra" data-cursor="ver" [class.is-fora]="!ativo(p)" [attr.aria-label]="p.nome + ', ' + p.categoria">
+        <div class="cartao__img"><app-ilustracao [nome]="p.id" [rotulo]="p.nome"></app-ilustracao></div>
+        <div class="cartao__cab">
+          <h3>{{ p.nome }}</h3>
+          <span class="cartao__n">{{ numero(i) }} · {{ p.categoria }}</span>
+        </div>
+        <span class="suave cartao__linha">{{ p.linha }}</span>
+        <div class="mats">
+          @for (m of p.materiais; track m.nome) { <span [class]="'tx-' + m.textura" [attr.title]="m.nome"></span> }
+          <small>{{ listaDeMateriais(p) }}</small>
+        </div>
+      </a>
+    }
+  </div>
+</section>

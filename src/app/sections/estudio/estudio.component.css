@@ -1,0 +1,13 @@
+/* O ESTÚDIO — retrato, apresentação da Laura e números. */
+
+.estudio { background: var(--card); padding-block: 140px; }
+.estudio .wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 80px; align-items: center; }
+.retrato { aspect-ratio: 4 / 5.2; max-width: 100%; position: relative; display: flex; align-items: flex-end; padding: 18px; }
+.retrato span { background: rgba(20,18,16,.62); color: #F1EBE2; padding: 6px 10px; font-family: var(--f-mono); font-size: 11px; position: relative; }
+.estudio h2 { font-size: clamp(52px, 6vw, 96px); line-height: .95; }
+.numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--linha); padding-top: 28px; margin-top: 12px; }
+.numeros b { display: block; font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 4vw, 60px); line-height: 1; font-variant-numeric: tabular-nums; }
+.numeros span { font-size: 14px; color: var(--suave); }
+@media (max-width: 900px) { .estudio .wrap { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 700px) { .estudio { padding-block: 96px; } }
+.estudio__bio { font-size: 18px; max-width: 52ch; }

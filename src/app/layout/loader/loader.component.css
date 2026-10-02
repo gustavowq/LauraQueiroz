@@ -1,0 +1,10 @@
+/* ABERTURA — tela escura em que o arco do logo LQA se desenha antes do site aparecer. */
+
+.loader {
+  position: fixed; inset: 0; z-index: 100; background: var(--grafite); color: #EEE6DA;
+  display: grid; place-items: center;
+}
+.loader__mark { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.loader__mark svg { width: 92px; height: 112px; overflow: visible; }
+.loader__letras { font-size: 14px; letter-spacing: .9em; font-weight: 500; margin-right: -.9em; }
+.loader__cota { position: absolute; bottom: 40px; left: 0; right: 0; display: flex; justify-content: space-between; padding-inline: var(--gutter); color: #B2A797; }

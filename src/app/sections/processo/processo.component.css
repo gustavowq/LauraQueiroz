@@ -1,0 +1,17 @@
+/* PROCESSO — fundo invertido com as quatro etapas ligadas por uma linha que se desenha. */
+
+.processo { background: var(--inverso-bg); color: var(--inverso-fg); padding-block: 140px; position: relative; overflow: hidden; }
+.processo h2 { font-size: clamp(48px, 6vw, 96px); line-height: .95; max-width: 12ch; }
+.processo__linha { position: relative; margin-top: 80px; }
+.processo__linha svg.fio { position: absolute; left: 0; top: 34px; width: 100%; height: 40px; overflow: visible; }
+.etapas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; position: relative; }
+.etapa { display: flex; flex-direction: column; gap: 14px; padding-top: 90px; position: relative; }
+.etapa::before { content: ''; position: absolute; top: 46px; left: 0; width: 18px; height: 22px; border: 1px solid currentColor; border-bottom: 0; border-radius: 999px 999px 0 0; background: var(--inverso-bg); }
+.etapa__n { font-family: var(--f-display); font-style: italic; font-size: 64px; line-height: 1; }
+.etapa h3 { font-family: var(--f-body); font-size: 19px; font-weight: 600; }
+.etapa p { opacity: .74; font-size: 16px; }
+@media (max-width: 900px) { .etapas { grid-template-columns: minmax(0, 1fr); } .processo__linha svg.fio { display: none; } }
+@media (max-width: 700px) { .processo { padding-block: 96px; } }
+.processo__rotulo { opacity: .7; }
+.processo__titulo { margin-top: 18px; }
+.etapas { list-style: none; margin: 0; padding: 0; }

@@ -1,0 +1,8 @@
+/* PRINCÍPIOS — os três pilares do estúdio (Matéria, Luz, Afeto), logo abaixo do manifesto. */
+
+.principios { background: var(--grafite); color: #EEE6DA; }
+.principios .wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; padding-block: 40px 140px; }
+.principio { border-top: 1px solid rgba(238,230,218,.5); padding-top: 22px; display: flex; flex-direction: column; gap: 14px; }
+.principio p { color: #B2A797; max-width: 34ch; }
+.principio .rotulo { color: #EEE6DA; }
+@media (max-width: 800px) { .principios .wrap { grid-template-columns: minmax(0, 1fr); } }

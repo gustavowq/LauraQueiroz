@@ -1,0 +1,20 @@
+/* DO TRAÇO AO ESPAÇO — comparador arrastável entre o desenho técnico e o ambiente pronto. */
+
+.traco { padding-block: 140px; }
+.traco__cab { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+.traco h2 { font-size: clamp(44px, 5.4vw, 84px); line-height: .96; }
+.comparador { position: relative; aspect-ratio: 16 / 8; max-width: 100%; overflow: hidden; background: var(--linho); user-select: none; touch-action: pan-y; cursor: ew-resize; }
+.comparador svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.comparador__depois { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--corte, 50%)); }
+.comparador__alca { position: absolute; top: 0; bottom: 0; left: var(--corte, 50%); width: 1px; background: #1C1A17; }
+.comparador__alca span { position: absolute; top: 50%; left: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; background: #1C1A17; color: #F1EBE2; display: grid; place-items: center; font-family: var(--f-mono); font-size: 11px; }
+.comparador__tags { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; pointer-events: none; }
+.comparador__tags span { background: rgba(20,18,16,.62); color: #F1EBE2; padding: 6px 10px; font-family: var(--f-mono); font-size: 11px; }
+.comparador input { position: absolute; inset: auto 0 0 0; width: 100%; opacity: 0; height: 44px; cursor: ew-resize; }
+@media (max-width: 700px) { .comparador { aspect-ratio: 4 / 3.4; } }
+
+@media (max-width: 700px) {
+  .traco { padding-block: 96px; }
+  .comparador__tags span { font-size: 10px; padding: 4px 7px; }
+  .comparador__alca span { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
+}

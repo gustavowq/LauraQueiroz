@@ -1,0 +1,51 @@
+<!-- DO TRAÇO AO ESPAÇO — comparador: à esquerda o desenho técnico, à direita o ambiente pronto. Arraste para comparar. -->
+<section class="traco" aria-label="Antes e depois">
+  <div class="wrap">
+    <div class="traco__cab">
+      <div class="pilha">
+        <span class="rotulo suave">Do traço ao espaço</span>
+        <h2 data-linhas>Arraste para ver o desenho virar casa.</h2>
+      </div>
+      <span class="cota">elevação · cozinha · esc. 1:25</span>
+    </div>
+    <div class="comparador" [style.--corte]="corte() + '%'" (pointerdown)="arrastar($event)">
+      <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="1200" height="600" fill="#F1EBE2"></rect>
+        <g class="desenho" fill="none" stroke="#2a2622" stroke-width="1.6">
+          <path d="M0 520 H1200"></path>
+          <path d="M120 520 V300 H760 V520"></path><path d="M120 330 H760"></path>
+          <path d="M280 330 V520 M440 330 V520 M600 330 V520"></path>
+          <path d="M180 360 H220 M340 360 H380 M500 360 H540 M660 360 H700"></path>
+          <path d="M520 60 H640 V200 H520 Z"></path><path d="M520 200 L496 250 H664 L640 200"></path>
+          <path d="M820 520 V120 H1080 V520"></path><path d="M950 120 V520"></path>
+          <path d="M200 300 Q180 220 150 200 M200 300 Q206 210 226 180 M200 300 Q230 230 262 214"></path>
+          <path d="M188 300 H212 V260 H188 Z"></path>
+          <path d="M70 520 V40 M70 40 H1150" stroke-dasharray="6 8" stroke="#7a6f63"></path>
+        </g>
+        <text x="120" y="560" font-family="DM Mono, monospace" font-size="18" fill="#5B534C">6,40 m</text>
+        <text x="820" y="560" font-family="DM Mono, monospace" font-size="18" fill="#5B534C">despensa · 2,60 m</text>
+      </svg>
+      <div class="comparador__depois">
+        <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="1200" height="600" fill="url(#p-offwhite)"></rect>
+          <rect x="0" y="520" width="1200" height="80" fill="url(#p-cimento)"></rect>
+          <rect x="120" y="300" width="640" height="30" fill="url(#p-cimento)"></rect>
+          <rect x="120" y="330" width="640" height="190" fill="url(#p-musgo)"></rect>
+          <path d="M280 330 V520 M440 330 V520 M600 330 V520" stroke="#323d29" stroke-width="3"></path>
+          <path d="M180 360 H220 M340 360 H380 M500 360 H540 M660 360 H700" stroke="#c9a76a" stroke-width="5" stroke-linecap="round"></path>
+          <rect x="520" y="0" width="120" height="200" fill="url(#p-cimento)"></rect>
+          <path d="M520 200 L496 250 H664 L640 200 Z" fill="#8f877d"></path>
+          <rect x="820" y="120" width="260" height="400" fill="url(#p-ripado)"></rect>
+          <path d="M950 120 V520" stroke="#3a2717" stroke-width="3"></path>
+          <rect x="188" y="260" width="24" height="40" rx="6" fill="#1C1A17"></rect>
+          <path d="M200 260 Q180 200 150 180 M200 260 Q206 180 226 150 M200 260 Q230 200 262 184" stroke="#b39874" stroke-width="3" fill="none"></path>
+          <ellipse cx="580" cy="280" rx="180" ry="60" fill="url(#g-luz)" opacity=".7"></ellipse>
+        </svg>
+      </div>
+      <div class="comparador__tags"><span>traço · projeto executivo</span><span>espaço · entregue</span></div>
+      <div class="comparador__alca"><span><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 1 1 6l5 5M16 1l5 5-5 5M1 6h20"></path></svg></span></div>
+      <label class="so-leitor" for="corte">Comparar desenho e resultado</label>
+      <input id="corte" type="range" min="0" max="100" [value]="corte()" (input)="corte.set(+$any($event.target).value)">
+    </div>
+  </div>
+</section>

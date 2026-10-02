@@ -1,0 +1,50 @@
+/* =====================================================================
+   TOKENS — a paleta, as fontes e as medidas do site em um só lugar.
+   Paleta tirada dos projetos da Laura: linho, freijó, musgo, terracota,
+   grafite e o âmbar da "luz da noite".
+   html[data-luz="noite"] troca todas as cores de uma vez (o "dimmer").
+   ===================================================================== */
+:root {
+  --linho: #F1EBE2;
+  --papel: #E7DFD3;
+  --grafite: #1C1A17;
+  --texto: #1C1A17;
+  --suave: #5B534C;
+  --linha: rgba(28, 26, 23, .16);
+  --musgo: #46553A;
+  --terracota: #9E4A2B;
+  --ambar: #D9A866;
+  --freijo: #9C7556;
+  --bg: var(--linho);
+  --card: var(--papel);
+  --acento: var(--musgo);
+  --sobre-acento: #F1EBE2;
+  --inverso-bg: #1C1A17;
+  --inverso-fg: #EEE6DA;
+  --f-display: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+  --f-body: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --f-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --gutter: clamp(16px, 4vw, 64px);
+  --max: 1320px;
+  --ease: cubic-bezier(.7, 0, .2, 1);
+  color-scheme: light;
+}
+html[data-luz="noite"] {
+  --bg: #14120F;
+  --card: #1E1B18;
+  --texto: #EEE6DA;
+  --suave: #B2A797;
+  --linha: rgba(238, 230, 218, .14);
+  --acento: var(--ambar);
+  --sobre-acento: #1B1815;
+  --inverso-bg: #EEE6DA;
+  --inverso-fg: #1C1A17;
+  --terracota: #D88A66;
+  color-scheme: dark;
+}
+
+/* Telas muito grandes: conteúdo um pouco mais largo e texto maior */
+@media (min-width: 1800px) {
+  :root { --max: 1520px; }
+  body { font-size: 18px; }
+}

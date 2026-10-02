@@ -1,0 +1,38 @@
+<!-- A CONSTRUÇÃO DA CASA DO LAGO — a animação principal do site.
+     O palco fica fixo na tela enquanto a pessoa rola; o <canvas> mostra a cena 3D
+     e por cima ficam o título, a escala do desenho e as legendas de cada capítulo. -->
+<section class="obra" id="obra" aria-label="A construção da Casa do Lago">
+  <div class="obra__palco">
+    <canvas role="img" aria-label="Animação 3D: a Casa do Lago sendo construída, da planta ao entardecer"></canvas>
+
+    <div class="obra__ui">
+      <!-- Topo: título e escala atual do desenho -->
+      <div class="obra__topo">
+        <div class="obra__cabecalho">
+          <span class="rotulo">A história por trás · nº 01</span>
+          <span class="obra__titulo">Casa do <em>Lago</em></span>
+        </div>
+        <span class="cota obra__escala">planta · esc. 1:200</span>
+      </div>
+
+      <!-- Base: legendas dos capítulos + trilho de progresso -->
+      <div class="obra__base">
+        <div>
+          <div class="obra__capitulos">
+            @for (c of capitulos; track c.n) {
+              <div class="capitulo">
+                <span class="capitulo__n">{{ c.n }}</span>
+                <h3>{{ c.titulo }}</h3>
+                <p>{{ c.texto }}</p>
+              </div>
+            }
+          </div>
+          <div class="obra__trilho" aria-hidden="true">
+            @for (c of capitulos; track c.n) { <i><b></b></i> }
+          </div>
+        </div>
+        <span class="obra__dica">continue rolando para construir</span>
+      </div>
+    </div>
+  </div>
+</section>

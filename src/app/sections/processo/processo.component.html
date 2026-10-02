@@ -1,0 +1,17 @@
+<!-- PROCESSO — as quatro etapas do trabalho, ligadas por uma linha que se desenha com a rolagem. -->
+<section class="processo" id="processo" aria-label="Processo">
+  <div class="wrap">
+    <span class="rotulo processo__rotulo">Como trabalhamos</span>
+    <h2 class="processo__titulo" data-linhas>Do primeiro café à chave na mão.</h2>
+    <div class="processo__linha">
+      <svg class="fio" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 20 C 120 20, 160 4, 250 20 S 400 36, 500 20 S 650 4, 750 20 S 900 36, 1000 20" fill="none" stroke="currentColor" stroke-width="1.2"></path>
+      </svg>
+      <ol class="etapas">
+        @for (e of etapas; track e.n) {
+          <li class="etapa"><span class="etapa__n">{{ e.n }}</span><h3>{{ e.t }}</h3><p>{{ e.d }}</p></li>
+        }
+      </ol>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+/* A CONSTRUÇÃO — palco 3D fixo na tela enquanto a Casa do Lago é construída pela rolagem, com as legendas dos capítulos. */
+
+.obra { position: relative; background: var(--bg); }
+.obra__palco { position: relative; height: 100vh; overflow: hidden; background: #EDE6DB; }
+.obra__palco canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.obra__ui::before { content: ''; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(transparent, rgba(237,230,219,.55)); pointer-events: none; transition: opacity .6s; }
+.obra.is-noite .obra__ui::before { background: linear-gradient(transparent, rgba(12,10,9,.6)); }
+.obra__ui > * { position: relative; }
+.obra__ui { position: absolute; inset: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 110px var(--gutter) 40px; color: #1C1A17; }
+.obra__topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.obra__titulo { font-family: var(--f-display); font-size: clamp(36px, 4.4vw, 64px); line-height: 1; }
+.obra__capitulos { position: relative; width: min(420px, 100%); min-height: 210px; }
+.capitulo { position: absolute; left: 0; bottom: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0; }
+.capitulo__n { font-family: var(--f-display); font-style: italic; font-size: 54px; line-height: 1; }
+.capitulo h3 { font-family: var(--f-body); font-size: 15px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; }
+.capitulo p { font-size: 17px; line-height: 1.55; max-width: 36ch; }
+.obra__trilho { display: flex; gap: 6px; align-items: center; margin-top: 18px; }
+.obra__trilho i { display: block; height: 2px; width: 34px; background: currentColor; opacity: .2; transform-origin: left; }
+.obra__trilho i b { display: block; height: 100%; background: currentColor; transform: scaleX(0); transform-origin: left; }
+.obra__base { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.obra__dica { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; }
+.obra.is-noite .obra__ui { color: #EEE6DA; }
+.obra__vel { position: absolute; inset: 0; background: var(--grafite); pointer-events: none; }
+@media (max-width: 700px) {
+  .obra__ui { padding-top: 96px; }
+  .obra__capitulos { min-height: 190px; }
+  .capitulo p { font-size: 15px; }
+}
+
+/* Celular deitado: legendas compactas */
+@media (max-height: 520px) and (orientation: landscape) {
+  .obra__ui { padding-top: 76px; padding-bottom: 16px; }
+  .obra__titulo { font-size: 30px; }
+  .obra__capitulos { min-height: 150px; }
+  .capitulo__n { font-size: 36px; }
+  .capitulo p { font-size: 14px; }
+  .obra__dica { display: none; }
+}
+.obra__cabecalho { display: flex; flex-direction: column; gap: 10px; }
+.obra__escala { color: inherit; }

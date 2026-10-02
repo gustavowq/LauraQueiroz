@@ -1,0 +1,24 @@
+<!-- MUNDINHO ENCANTADO — arquitetura infantil: texto, vale-presente e a ilustração do quartinho, com seixos animados ao fundo. -->
+<section class="mundinho" id="mundinho" aria-label="Arquitetura infantil">
+  <div class="mundinho__seixos" aria-hidden="true">
+    @for (s of seixos; track $index) {
+      <svg [style.left]="s.x" [style.top]="s.y" [attr.width]="s.w" [attr.height]="s.w" viewBox="0 0 128 120">
+        <path [attr.d]="formas[$index % 3]" fill="none" stroke="currentColor" stroke-width="1.2" [style.color]="s.c"></path>
+      </svg>
+    }
+  </div>
+  <div class="wrap">
+    <div class="pilha pilha--larga mundinho__texto">
+      <span class="rotulo mundinho__rotulo">Arquitetura infantil</span>
+      <h2 data-linhas>Um mundinho <em>encantado</em> e particular.</h2>
+      <p class="suave mundinho__intro" data-sobe>Quartos de bebê e de criança atemporais: base off-white que foge do branco óbvio, lambris de madeira, linho e muito aconchego. Pensados para crescer junto com a família.</p>
+      <div class="vale" data-sobe>
+        <span class="rotulo rotulo--mini">Para presentear</span>
+        <h3>Vale-projeto Mundinho Encantado</h3>
+        <p class="suave vale__texto">Um presente para futuros pais, avós e padrinhos: o projeto completo do quartinho. [VALOR A PARTIR DE R$ —]</p>
+        <a class="btn vale__botao" href="#contato">Quero presentear</a>
+      </div>
+    </div>
+    <div class="quarto arco" data-arco><app-ilustracao nome="miguel" rotulo="Quartinho do Miguel"></app-ilustracao></div>
+  </div>
+</section>
